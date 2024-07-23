@@ -16,8 +16,15 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v2
         with:
-          java-version: '11'  # Adjust Java version as per your requirements
+          java-version: '11'  # Specify the Java version
+          distribution: 'adopt'  # Specify the distribution (e.g., adopt, openjdk)
+          server-id: github
+          server-username: ${{ github.actor }}
+          server-password: ${{ github.token }}
       
       - name: Rescan Application
+        env:
+          AIP_CONSOLE_USERNAME: admin
+          AIP_CONSOLE_PASSWORD: admin
         run: |
-          java -jar JAR/aip-console-tools-cli.jar rescan --application SHOPIZER --console-url http://localhost:8081 --username admin --password admin
+          java -jar JAR/aip-console-tools-cli.jar rescan --application SHOPIZER --console-url http://localhost:8081 --username ${{ env.admin }} --password ${{ env.admin }}
