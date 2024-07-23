@@ -11,8 +11,12 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Create symbolic link
+        shell: powershell
         run: |
-          mklink /D D:\a\Shopizer\Shopizer C:\Shopizer
+          if (!(Test-Path -Path "D:\a\Shopizer\Shopizer")) {
+              New-Item -ItemType Directory -Force -Path "D:\a\Shopizer"
+          }
+          cmd /c mklink /D D:\a\Shopizer\Shopizer C:\Shopizer
 
       - name: Checkout code
         uses: actions/checkout@v2
@@ -30,5 +34,5 @@ jobs:
           AIP_CONSOLE_USERNAME: admin  # Assuming AIP_CONSOLE_USERNAME is stored in GitHub Secrets
           AIP_CONSOLE_PASSWORD: admin  # Assuming AIP_CONSOLE_PASSWORD is stored in GitHub Secrets
         run: |
-          cd C:\Shopizer
+          cd D:\a\Shopizer\Shopizer
           java -jar JAR/aip-console-tools-cli.jar add --apikey="8uENrFd8.p7IwCkQbaGoMRR79s5TTSyxTGnskl9N8" --n SHOPIZER --console-url http://localhost:8081 -f C:\Shopizer --username ${{ env.AIP_CONSOLE_USERNAME }} --password ${{ env.AIP_CONSOLE_PASSWORD }}
