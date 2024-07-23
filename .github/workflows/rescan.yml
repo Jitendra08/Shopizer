@@ -9,14 +9,12 @@ on:
 jobs:
   rescan:
     runs-on: windows-latest
+    env:
+      LOCAL_REPO_PATH: C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer  # Define a variable for the local repository path
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Define a variable for the local repository path
-      env:
-        LOCAL_REPO_PATH: C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer
-        
       - name: Copy repository to target directory
         run: |
           robocopy ${{ github.workspace }} ${{ env.LOCAL_REPO_PATH }} /E /IS /LOG:C:\robocopy_logs\robocopy_log.txt
@@ -32,5 +30,5 @@ jobs:
           AIP_CONSOLE_USERNAME: ${{ secrets.AIP_CONSOLE_USERNAME }}
           AIP_CONSOLE_PASSWORD: ${{ secrets.AIP_CONSOLE_PASSWORD }}
         run: |
-          cd C:/Users/JKM/Documents/Cast_Software/G/SOURCES/Shopizer
+          cd ${{ env.LOCAL_REPO_PATH }}
           java -jar JAR/aip-console-tools-cli.jar rescan --application SHOPIZER --console-url http://localhost:8081 --username ${{ env.AIP_CONSOLE_USERNAME }} --password ${{ env.AIP_CONSOLE_PASSWORD }}
