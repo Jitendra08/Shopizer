@@ -12,8 +12,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          path: 'C:/Users/JKM/Documents/Cast_Software/G/SOURCES/Shopizer'  # Specify the local path where you want to checkout the code
+        
+      - name: Copy repository to target directory
+        run: |
+          robocopy D:\a\Shopizer\Shopizer C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer /E /IS
+
       
       - name: Set up Java 11
         uses: actions/setup-java@v2
