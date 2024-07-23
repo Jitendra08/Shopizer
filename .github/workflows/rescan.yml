@@ -13,8 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          path: 'C:\Shopizer'
-          
+          path: 'C:\Shopizer'  # Checkout code into C:\Shopizer directory
+
       - name: Set up Java 11
         uses: actions/setup-java@v2
         with:
@@ -23,8 +23,8 @@ jobs:
       
       - name: Rescan Application
         env:
-          AIP_CONSOLE_USERNAME: admin
-          AIP_CONSOLE_PASSWORD: admin
+          AIP_CONSOLE_USERNAME: admin  # Assuming AIP_CONSOLE_USERNAME is stored in GitHub Secrets
+          AIP_CONSOLE_PASSWORD: admin  # Assuming AIP_CONSOLE_PASSWORD is stored in GitHub Secrets
         run: |
-          cd C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer
-          java -jar JAR/aip-console-tools-cli.jar add --apikey="8uENrFd8.p7IwCkQbaGoMRR79s5TTSyxTGnskl9N8" --n SHOPIZER --console-url http://localhost:8081 -f C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer --username ${{ env.AIP_CONSOLE_USERNAME }} --password ${{ env.AIP_CONSOLE_PASSWORD }}
+          cd C:\Shopizer
+          java -jar JAR/aip-console-tools-cli.jar add --apikey="8uENrFd8.p7IwCkQbaGoMRR79s5TTSyxTGnskl9N8" --n SHOPIZER --console-url http://localhost:8081 -f C:\Shopizer --username ${{ env.AIP_CONSOLE_USERNAME }} --password ${{ env.AIP_CONSOLE_PASSWORD }}
