@@ -12,6 +12,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Create log directory
+        run: |
+          mkdir C:\robocopy_logs
         
       - name: Copy repository to target directory
         run: |
