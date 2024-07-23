@@ -27,4 +27,4 @@ jobs:
           AIP_CONSOLE_USERNAME: admin
           AIP_CONSOLE_PASSWORD: admin
         run: |
-          java -jar JAR/aip-console-tools-cli.jar rescan --application SHOPIZER --console-url http://localhost:8081 --username ${{ env.admin }} --password ${{ env.admin }}
+          java -jar JAR/aip-console-tools-cli.jar add --application SHOPIZER --console-url http://localhost:8081 --username ${{ env.admin }} --password ${{ env.admin }}
