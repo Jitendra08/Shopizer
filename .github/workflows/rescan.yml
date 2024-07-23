@@ -7,17 +7,17 @@ on:
   workflow_dispatch:  # Manual trigger from Actions tab
 
 jobs:
-  rescan:
+  robocopy:
     runs-on: windows-latest
-    env:
-      LOCAL_REPO_PATH: C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer  # Define a variable for the local repository path
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Copy repository to target directory
-        run: |
-          robocopy ${{ github.workspace }} ${{ env.LOCAL_REPO_PATH }} /E /IS /LOG:C:\robocopy_logs\robocopy_log.txt
+      - name: Create log directory
+        run: mkdir C:\robocopy_logs
+
+      - name: Run robocopy
+        run: robocopy D:\a\Shopizer\Shopizer C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer /E /IS /LOG:C:\robocopy_logs\robocopy_log.txt
       
       - name: Set up Java 11
         uses: actions/setup-java@v2
@@ -27,8 +27,8 @@ jobs:
       
       - name: Rescan Application
         env:
-          AIP_CONSOLE_USERNAME: ${{ secrets.AIP_CONSOLE_USERNAME }}
-          AIP_CONSOLE_PASSWORD: ${{ secrets.AIP_CONSOLE_PASSWORD }}
+          AIP_CONSOLE_USERNAME: admin
+          AIP_CONSOLE_PASSWORD: admin
         run: |
-          cd ${{ env.LOCAL_REPO_PATH }}
-          java -jar JAR/aip-console-tools-cli.jar rescan --application SHOPIZER --console-url http://localhost:8081 --username ${{ env.AIP_CONSOLE_USERNAME }} --password ${{ env.AIP_CONSOLE_PASSWORD }}
+          cd C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer
+          java -jar JAR/aip-console-tools-cli.jar add --apikey="8uENrFd8.p7IwCkQbaGoMRR79s5TTSyxTGnskl9N8" --n SHOPIZER --console-url http://localhost:8081 -f C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer --username ${{ env.AIP_CONSOLE_USERNAME }} --password ${{ env.AIP_CONSOLE_PASSWORD }}
