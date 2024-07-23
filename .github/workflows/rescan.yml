@@ -27,4 +27,5 @@ jobs:
           AIP_CONSOLE_USERNAME: admin
           AIP_CONSOLE_PASSWORD: admin
         run: |
-          java -jar JAR/aip-console-tools-cli.jar add --apikey="8uENrFd8.p7IwCkQbaGoMRR79s5TTSyxTGnskl9N8" --n SHOPIZER --server-url http://localhost:8081 -f C:\Shopizer
+          java -jar JAR/aip-console-tools-cli.jar add --apikey="8uENrFd8.p7IwCkQbaGoMRR79s5TTSyxTGnskl9N8" --n SHOPIZER --server-url="http://localhost:8081" -f \\jkmlap1\VMWINShare\SOURCES\Shopizer.zip --verbose=false --set-as-current=true
+
