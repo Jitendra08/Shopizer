@@ -13,7 +13,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          path: 'C:\Shopizer'  # Specify the path where you want to check out the repository
+          path: 'D:\a\Shopizer\Shopizer'  # Checkout into the expected directory structure
+
+      - name: Create symbolic link if not exists
+        shell: powershell
+        run: |
+          if (!(Test-Path -Path "C:\Shopizer")) {
+              cmd /c mklink /D C:\Shopizer D:\a\Shopizer\Shopizer
+          } else {
+              Write-Output "Symbolic link already exists."
+          }
 
       - name: Set up Java 11
         uses: actions/setup-java@v2
