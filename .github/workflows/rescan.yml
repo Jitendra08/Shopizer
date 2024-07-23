@@ -17,7 +17,7 @@ jobs:
         run: mkdir C:\robocopy_logs
 
       - name: Run robocopy
-        run: robocopy D:\a\Shopizer\Shopizer C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer /E /IS /LOG:C:\robocopy_logs\robocopy_log.txt
+        run: robocopy D:\a\Shopizer\Shopizer C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer /E /IS /LOG:C:\robocopy_logs\robocopy_log.txt /NP /NFL /NDL /TEE
       
       - name: Set up Java 11
         uses: actions/setup-java@v2
