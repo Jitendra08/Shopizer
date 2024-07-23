@@ -10,13 +10,14 @@ jobs:
   rescan:
     runs-on: windows-latest
     steps:
-      - name: Create symbolic link
+      - name: Create symbolic link if not exists
         shell: powershell
         run: |
           if (!(Test-Path -Path "D:\a\Shopizer\Shopizer")) {
-              New-Item -ItemType Directory -Force -Path "D:\a\Shopizer"
+              cmd /c mklink /D D:\a\Shopizer\Shopizer C:\Shopizer
+          } else {
+              Write-Output "Symbolic link already exists."
           }
-          cmd /c mklink /D D:\a\Shopizer\Shopizer C:\Shopizer
 
       - name: Checkout code
         uses: actions/checkout@v2
