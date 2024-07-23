@@ -1,0 +1,23 @@
+name: Rescan Application in CAST AIP
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to the main branch
+  workflow_dispatch:  # Manual trigger from Actions tab
+
+jobs:
+  rescan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'  # Adjust Java version as per your requirements
+      
+      - name: Rescan Application
+        run: |
+          java -jar C:/Users/JKM/Documents/Cast_Software/Softwares/Jenkins/plugins/com.castsoftware.aip.console.tools.2.2.0-funcrel/aip-console-tools-cli.jar rescan --application SHOPIZER --console-url http://localhost:8081 --username ${{ AIP_CONSOLE_SCAN.admin }} --password ${{ AIP_CONSOLE_SCAN.admin }}
