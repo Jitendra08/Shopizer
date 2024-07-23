@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          path: 'C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer'  # Specify the local path where you want to checkout the code
+          path: 'C:/Users/JKM/Documents/Cast_Software/G/SOURCES/Shopizer'  # Specify the local path where you want to checkout the code
       
       - name: Set up Java 11
         uses: actions/setup-java@v2
@@ -26,4 +26,5 @@ jobs:
           AIP_CONSOLE_USERNAME: admin
           AIP_CONSOLE_PASSWORD: admin
         run: |
+          cd C:/Users/JKM/Documents/Cast_Software/G/SOURCES/Shopizer
           java -jar JAR/aip-console-tools-cli.jar add --application SHOPIZER --apikey="8uENrFd8.p7IwCkQbaGoMRR79s5TTSyxTGnskl9N8" --console-url http://localhost:8081 -f C:/Users/JKM/Documents/Cast_Software/G/SOURCES/Shopizer.zip --username ${{ env.admin }} --password ${{ env.admin }}
