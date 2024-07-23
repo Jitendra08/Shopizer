@@ -20,4 +20,4 @@ jobs:
       
       - name: Rescan Application
         run: |
-          java -jar JAR/aip-console-tools-cli.jar rescan --application SHOPIZER --console-url http://localhost:8081 --username ${{ AIP_CONSOLE_SCAN.admin }} --password ${{ AIP_CONSOLE_SCAN.admin }}
+          java -jar JAR/aip-console-tools-cli.jar rescan --application SHOPIZER --console-url http://localhost:8081 --username admin --password admin
