@@ -13,13 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Create log directory
-        run: |
-          mkdir C:\robocopy_logs
+      # Define a variable for the local repository path
+      env:
+        LOCAL_REPO_PATH: C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer
         
       - name: Copy repository to target directory
         run: |
-          robocopy D:\a\Shopizer\Shopizer C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer /E /IS /LOG:C:\robocopy_logs\robocopy_log.txt
+          robocopy ${{ github.workspace }} ${{ env.LOCAL_REPO_PATH }} /E /IS /LOG:C:\robocopy_logs\robocopy_log.txt
       
       - name: Set up Java 11
         uses: actions/setup-java@v2
