@@ -25,7 +25,7 @@ jobs:
 
       - name: Verify network connectivity
         run: |
-          ping 172.19.192.1  # Ping the server to check connectivity
+          ping https://629a-115-99-190-68.ngrok-free.app  # Ping the server to check connectivity
           curl --head --fail --silent --show-error http://172.19.192.1:8081  # Check HTTP connectivity
 
       - name: Rescan Application
