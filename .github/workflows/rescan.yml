@@ -18,4 +18,5 @@ jobs:
 
       - name: Rescan Application
         run: |
-          java -jar 'C:/Users/JKM/Documents/Cast_Software/Softwares/Jenkins/plugins/com.castsoftware.aip.console.tools.2.2.0-funcrel/aip-console-tools-cli.jar' add --apikey="8uENrFd8.p7IwCkQbaGoMRR79s5TTSyxTGnskl9N8" --name="SHOPIZER" --server-url="http://localhost:8081" --file="\\\\jkmlap1\\VMWINShare\\SOURCES\\Shopizer.zip" --verbose=false --set-as-current=true
+          java -jar "C:/Users/JKM/Documents/Cast_Software/Softwares/Jenkins/plugins/com.castsoftware.aip.console.tools.2.2.0-funcrel/aip-console-tools-cli.jar" add --apikey="8uENrFd8.p7IwCkQbaGoMRR79s5TTSyxTGnskl9N8" --name="SHOPIZER" --server-url="http://localhost:8081" --file="\\jkmlap1\VMWINShare\SOURCES\Shopizer.zip" --verbose=false --set-as-current=true
+
