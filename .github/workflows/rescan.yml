@@ -25,4 +25,4 @@ jobs:
 
       - name: Rescan Application
         run: |
-          java -jar "JAR/aip-console-tools-cli.jar" add --apikey="8uENrFd8.p7IwCkQbaGoMRR79s5TTSyxTGnskl9N8" --n SHOPIZER --server-url="http://JKMLAP1:8081" -f \\jkmlap1\VMWINShare\SOURCES\Shopizer.zip --verbose=false --set-as-current=true
+          java -jar aip-console-tools-cli.jar add --apikey="8uENrFd8.p7IwCkQbaGoMRR79s5TTSyxTGnskl9N8" -n "SHOPIZER" --server-url="http://JKMLAP1:8081" -f "\\jkmlap1\VMWINShare\SOURCES\Shopizer.zip" --verbose=false --set-as-current=true
