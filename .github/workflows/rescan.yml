@@ -10,6 +10,9 @@ jobs:
   rescan:
     runs-on: windows-latest
     steps:
+      - name: List directory contents
+        run: ls -al JAR
+        
       - name: Set up Java 11
         uses: actions/setup-java@v2
         with:
