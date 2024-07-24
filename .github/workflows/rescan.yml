@@ -30,4 +30,4 @@ jobs:
 
       - name: Rescan Application
         run: |
-          java -jar aip-console-tools-cli.jar add --apikey="8uENrFd8.p7IwCkQbaGoMRR79s5TTSyxTGnskl9N8" -n "SHOPIZER" --server-url="https://3f45-115-99-190-68.ngrok-free.app" -f "C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer" --verbose=false --set-as-current=true
+          java -jar aip-console-tools-cli.jar add --apikey="8uENrFd8.p7IwCkQbaGoMRR79s5TTSyxTGnskl9N8" -n "SHOPIZER" --no-clone --server-url="https://3f45-115-99-190-68.ngrok-free.app" -f "C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer" --verbose=false --set-as-current=true
