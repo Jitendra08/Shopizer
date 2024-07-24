@@ -25,8 +25,8 @@ jobs:
 
       - name: Verify network connectivity
         run: |
-          ping 172.19.192.1 -c 5  # Ping the server to check connectivity
-          telnet 172.19.192.1 8081  # Attempt to connect to the server on port 8081
+          ping 172.19.192.1  # Ping the server to check connectivity
+          curl --head --fail --silent --show-error http://172.19.192.1:8081  # Check HTTP connectivity
 
       - name: Rescan Application
         run: |
