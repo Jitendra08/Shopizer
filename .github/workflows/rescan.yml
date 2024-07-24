@@ -10,6 +10,9 @@ jobs:
   rescan:
     runs-on: windows-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
       - name: List directory contents
         run: ls -al JAR
         
