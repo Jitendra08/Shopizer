@@ -10,12 +10,6 @@ jobs:
   rescan:
     runs-on: windows-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Create symbolic link to C:\Shopizer
-        run: New-Item -ItemType SymbolicLink -Path 'D:\a\Shopizer\Shopizer' -Name 'Shopizer' -Value 'C:\Shopizer' -Force
-
       - name: Set up Java 11
         uses: actions/setup-java@v2
         with:
