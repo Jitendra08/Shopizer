@@ -25,9 +25,9 @@ jobs:
 
       - name: Verify network connectivity
         run: |
-          ping https://d7b2-115-99-190-68.ngrok-free.app  # Ping the server to check connectivity
-          curl --head --fail --silent --show-error https://d7b2-115-99-190-68.ngrok-free.app  # Check HTTP connectivity
+          ping https://3e74-115-99-207-118.ngrok-free.app  # Ping the server to check connectivity
+          curl --head --fail --silent --show-error https://3e74-115-99-207-118.ngrok-free.app  # Check HTTP connectivity
 
       - name: Rescan Application
         run: |
-          java -jar aip-console-tools-cli.jar add --apikey="8uENrFd8.p7IwCkQbaGoMRR79s5TTSyxTGnskl9N8" -n "SHOPIZER" --no-clone --server-url="https://d7b2-115-99-190-68.ngrok-free.app" -f "C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Shopizer" --verbose=false --set-as-current=true --upload-application=true --process-imaging=true
+          java -jar aip-console-tools-cli.jar add --apikey="bkmj2aEO.vbrR4eMUZacrJYBLf5zBiH5leCc5mItA" -n "JEE_APP" --server-url="https://3e74-115-99-207-118.ngrok-free.app" -f "C:\Users\JKM\Documents\Cast_Software\G\SOURCES\Jee" --verbose=false --set-as-current=true --upload-application=true --process-imaging=true
